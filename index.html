@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Extensions</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eaeaea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+        }
+
+        .btn {
+            display: block;
+            width: 250px;
+            border: none;
+            background: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 10px auto;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .chrome {
+            background-color: #4285F4;
+            color: #ffffff;
+        }
+
+        .firefox {
+            background-color: #FF7139;
+            color: #ffffff;
+        }
+
+        .larger {
+            width: 270px;
+            font-size: 17px;
+            padding: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Chrome Extension Download Button -->
+        <a href="ecsi.crx" class="btn download-button chrome">
+            <i class="fab fa-chrome"></i>
+            Download Chrome Extension
+        </a>
+
+        <!-- Firefox Extension Download Button -->
+        <a href="ecsi.xpi" class="btn download-button firefox">
+            <i class="fab fa-firefox"></i>
+            Download Firefox Extension
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            adjustButtonSize();
+        });
+
+        function adjustButtonSize() {
+            let chromeButton = document.querySelector(".chrome");
+            let firefoxButton = document.querySelector(".firefox");
+
+            const browser = getBrowser();
+
+            if (browser === "Chrome") {
+                chromeButton.classList.add("larger");
+            } else if (browser === "Firefox") {
+                firefoxButton.classList.add("larger");
+            }
+        }
+
+        function getBrowser() {
+            const userAgent = navigator.userAgent;
+
+            if (/firefox/i.test(userAgent)) {
+                return "Firefox";
+            } else if (/chrome/i.test(userAgent) && !/edge/i.test(userAgent)) {
+                return "Chrome";
+            }
+            return "Unknown";
+        }
+    </script>
+
+</body>
+
+</html>
