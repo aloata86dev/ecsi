@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "ECSI",
     "description": "Script injector that loads and auto-updates digitally signed content scripts remotely",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "icons": {
         "16": "icons/16.png",
         "32": "icons/32.png",
@@ -11,7 +11,8 @@
     },
     "browser_specific_settings": {
         "gecko": {
-            "update_url": "https://raw.githubusercontent.com/aloata86dev/ecsi/main/updates.json"
+            "id": "{7bc8855a-54d1-44c8-97d9-23ea42e2ada6}",
+            "update_url": "https://aloata86dev.github.io/ecsi/updates.json"
         }
     },
     "background": {
