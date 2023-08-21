@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="./settings.css">
+</head>
+
+<body>
+    <div class="page-controls">
+        <button id="cancelButton">Cancel</button>
+        <button id="saveButton">Save</button>
+    </div>
+
+    <div class="modal warning-box">
+        <p><strong>Warning</strong><br><br>This tool has advanced features, including the ability to inject content scripts into webpages. When improperly utilized, content scripts can pose risks to users by potentially accessing their personal data, introducing unwanted changes to page content, or even redirecting to malicious sites. This tool is designed primarily for IT professionals who understand its capabilities and the potential risks to end users. Always use with caution and knowledge.</p>
+    </div>
+
+    <form id="settingsForm">
+
+        <div class="modal">
+            <h3>Content Script</h3>
+            <textarea name="contentScript" id="contentScript" placeholder="Enter formatted JavaScript code here"
+                rows="30"></textarea><br><br>
+            <div class="button-group">
+                <button id="signScript">Sign Script</button>
+                <input type="file" id="openScript">
+                <label for="openScript">Open</label>
+            </div>
+        </div>
+
+        <div class="modal">
+            <h3>Keys</h3>
+            <label for="privateKey">Private Key:</label><br>
+            <textarea rows="4" name="privateKey" id="privateKey" placeholder="Enter Private Key"></textarea><br><br>
+
+            <label for="publicKey">Public Key:</label><br>
+            <textarea rows="4" name="publicKey" id="publicKey" placeholder="Enter Public Key"></textarea><br><br>
+
+            <button id="generateKeys">Generate Keys</button>
+        </div>
+
+        <div class="modal">
+            <h3>Auto Update</h3>
+
+            <label for="updateUrl">Update URL:</label><br>
+            <textarea rows="4" name="updateUrl" id="updateUrl" placeholder="Enter URL"></textarea><br><br>
+
+            <label for="publicKeyForUpdate">Public Key for Update:</label><br>
+            <textarea rows="4" name="publicKeyForUpdate" id="publicKeyForUpdate"
+                placeholder="Enter Public Key"></textarea><br><br>
+
+            <label for="enableUpdate">Enable Auto Update:</label>
+            <input name="enableUpdate" type="checkbox" id="enableUpdate"><br><br>
+
+            <label for="autoConfigUrl">Auto Config URL:</label><br>
+            <textarea rows="4" name="autoConfigUrl" id="autoConfigUrl" readonly></textarea>
+        </div>
+
+    </form>
+    <script type="module" src="settings.js"></script>
+</body>
+
+</html>
